@@ -21,16 +21,13 @@ namespace XamDevSummit.ViewModels
         }
 
         private DelegateCommand _hamburgerCommand;
-        public DelegateCommand HamburgerCommand
-        {
-            get => _hamburgerCommand ?? (_hamburgerCommand = new DelegateCommand(() => EventAggregator.GetEvent<HamburgerMenuEvent>().Publish()));
-        }
+        public DelegateCommand HamburgerCommand => _hamburgerCommand ?? (_hamburgerCommand = new DelegateCommand(() => EventAggregator.GetEvent<HamburgerMenuEvent>().Publish()));
 
         private DelegateCommand _navigateBackCommand;
-        public DelegateCommand NavigateBackCommand
-        {
-            get => _navigateBackCommand ?? (_navigateBackCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync()));
-        }
+        public DelegateCommand NavigateBackCommand => _navigateBackCommand ?? (_navigateBackCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync()));
+
+        private DelegateCommand _closeCommand;
+        public DelegateCommand CloseCommand => _closeCommand ?? (_closeCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync(useModalNavigation: PageMode == PageMode.Modal)));
 
         public ViewModelBase(INavigationService navigationService, IEventAggregator eventAggregator)
         {

@@ -11,7 +11,7 @@
               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="StatusRowDefinition" Height="0" />
-                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -34,6 +34,12 @@
                 <Button x:Name="NavigateBackButton"
                         Text="{x:Static models:IconFont.ChevronLeft}"
                         Command="{Binding NavigateBackCommand}"
+                        Style="{StaticResource MaterialButton}"
+                        Grid.Column="0" />
+
+                <Button x:Name="CloseButton"
+                        Text="{x:Static models:IconFont.Close}"
+                        Command="{Binding CloseCommand}"
                         Style="{StaticResource MaterialButton}"
                         Grid.Column="0" />
 

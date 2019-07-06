@@ -87,19 +87,32 @@ namespace XamDevSummit.Views
                     case PageMode.Menu:
                         HamburgerButton.IsVisible = true;
                         NavigateBackButton.IsVisible = false;
+                        CloseButton.IsVisible = false;
                         break;
                     case PageMode.Navigate:
                         HamburgerButton.IsVisible = false;
                         NavigateBackButton.IsVisible = true;
+                        CloseButton.IsVisible = false;
+                        break;
+                    case PageMode.Modal:
+                        HamburgerButton.IsVisible = false;
+                        NavigateBackButton.IsVisible = false;
+                        CloseButton.IsVisible = true;
                         break;
                     default:
                         HamburgerButton.IsVisible = false;
                         NavigateBackButton.IsVisible = false;
+                        CloseButton.IsVisible = false;
                         break;
                 }
 
                 HandleHamburgerMenuGesture(PageMode == PageMode.Menu);
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            HandleHamburgerMenuGesture(PageMode == PageMode.Menu);
         }
     }
 }
