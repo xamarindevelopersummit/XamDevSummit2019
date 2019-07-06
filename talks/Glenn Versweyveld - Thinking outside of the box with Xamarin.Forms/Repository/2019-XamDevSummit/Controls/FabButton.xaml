@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:XamDevSummit.Models"
+             xmlns:controls="clr-namespace:XamDevSummit.Controls"
+             x:Class="XamDevSummit.Controls.FabButton">
+    <ContentView.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0"
+              HeightRequest="50" WidthRequest="50"
+              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Button x:Name="Fab"
+                    CornerRadius="25" BackgroundColor="Olive"
+                    Text="{x:Static models:IconFont.XamarinOutline}"
+                    Command="{Binding ChatCommand}"
+                    Style="{StaticResource MaterialButton}" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

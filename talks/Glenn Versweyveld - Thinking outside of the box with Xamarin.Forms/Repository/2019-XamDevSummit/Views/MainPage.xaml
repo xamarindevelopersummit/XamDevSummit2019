@@ -10,6 +10,7 @@
         <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
             <Button Text="Navigate to non modal sub page" Command="{Binding NonModalCommand}" />
             <Button Text="Navigate to modal sub page" Command="{Binding ModalCommand}" />
+            <Button Text="Show fab button" Command="{Binding FabCommand}" />
         </StackLayout>
     </views:BasePage.BasePageContent>
 </views:BasePage>

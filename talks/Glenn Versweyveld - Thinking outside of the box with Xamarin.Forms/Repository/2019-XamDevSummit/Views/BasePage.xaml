@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:XamDevSummit.Models"
+             xmlns:controls="clr-namespace:XamDevSummit.Controls"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XamDevSummit.Views.BasePage">
@@ -54,6 +55,12 @@
                   BackgroundColor="White"
                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
                   Grid.Row="2" />
+
+            <controls:FabButton x:Name="FabButton"
+                                IsVisible="{Binding IsFabButtonVisible}"
+                                Margin="0,0,20,20"
+                                VerticalOptions="End" HorizontalOptions="End"
+                                Grid.Row="2" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

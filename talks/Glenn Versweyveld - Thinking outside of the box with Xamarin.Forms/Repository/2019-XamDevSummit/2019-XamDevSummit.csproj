@@ -22,5 +22,6 @@
     <Folder Include="Models\" />
     <Folder Include="Models\Interfaces\" />
     <Folder Include="Events\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
 </Project>

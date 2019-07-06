@@ -12,6 +12,9 @@ namespace XamDevSummit.ViewModels
         private DelegateCommand _modalCommand;
         public DelegateCommand ModalCommand => _modalCommand ?? (_modalCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("ModalSubPage", useModalNavigation: true)));
 
+        private DelegateCommand _fabCommand;
+        public DelegateCommand FabCommand => _fabCommand ?? (_fabCommand = new DelegateCommand(() => IsFabButtonVisible = !IsFabButtonVisible));
+
         public MainViewModel(INavigationService navigationService, IEventAggregator eventAggregator) : base(navigationService, eventAggregator)
         {
         }

@@ -20,6 +20,13 @@ namespace XamDevSummit.ViewModels
             set => SetProperty(ref _pageMode, value);
         }
 
+        private bool _isFabButtonVisible = false;
+        public bool IsFabButtonVisible
+        {
+            get => _isFabButtonVisible;
+            set => SetProperty(ref _isFabButtonVisible, value);
+        }
+
         private DelegateCommand _hamburgerCommand;
         public DelegateCommand HamburgerCommand => _hamburgerCommand ?? (_hamburgerCommand = new DelegateCommand(() => EventAggregator.GetEvent<HamburgerMenuEvent>().Publish()));
 
