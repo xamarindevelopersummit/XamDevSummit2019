@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using XamDevSummit.Events;
 using XamDevSummit.Models;
 using XamDevSummit.Models.Interfaces;
+using XamDevSummit.Services.Interfaces;
 using XamDevSummit.ViewModels;
 
 namespace XamDevSummit.Views
@@ -16,6 +17,7 @@ namespace XamDevSummit.Views
 
         protected IUnityContainer Container { get; }
         protected IEventAggregator EventAggregator { get; }
+        protected IPopupService PopupService { get; }
 
         #region Bindable properties
         public static readonly BindableProperty BasePageTitleProperty = BindableProperty.Create(nameof(BasePageTitle), typeof(string), typeof(BasePage), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: OnBasePageTitleChanged);
@@ -63,6 +65,7 @@ namespace XamDevSummit.Views
             Container = ((PrismApplication)Application.Current).Container.GetContainer();
             EventAggregator = Container.Resolve<IEventAggregator>();
             EventAggregator.GetEvent<HamburgerMenuEvent>().Subscribe(HandleHamburgerMenu);
+            PopupService = Container.Resolve<IPopupService>();
         }
 
         private void HandleHamburgerMenu()
@@ -113,6 +116,11 @@ namespace XamDevSummit.Views
         protected override void OnAppearing()
         {
             HandleHamburgerMenuGesture(PageMode == PageMode.Menu);
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return PopupService.Dismiss();
         }
     }
 }

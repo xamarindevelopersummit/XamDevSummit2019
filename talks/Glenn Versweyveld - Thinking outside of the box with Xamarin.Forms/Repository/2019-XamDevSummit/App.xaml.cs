@@ -22,7 +22,7 @@ namespace XamDevSummit
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<IPopupService, PopupService>();
+            containerRegistry.RegisterSingleton<IPopupService, PopupService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MasterDetailShellPage, MasterDetailShellViewModel>();
