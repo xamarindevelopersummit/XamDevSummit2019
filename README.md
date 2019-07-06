@@ -1,4 +1,4 @@
-# XamDevSummit2019
+#XamDevSummit2019
 
 ![](https://raw.githubusercontent.com/xamarindevelopersummit/XamDevSummit2019/master/logos/logo%20300x300.png)
 
