@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:BasePopup xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:XamDevSummit.Controls"
+                    x:Class="XamDevSummit.Controls.SelectionPopup">
+    <controls:BasePopup.BasePopupContent>
+        <Grid WidthRequest="250" HeightRequest="350">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+
+            <Label x:Name="TitleLabel" TextColor="White"
+                   VerticalOptions="Center" HorizontalOptions="Center"
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   Grid.Row="0" />
+            
+            <Label x:Name="MessageLabel" TextColor="White"            
+                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                   Margin="20,10,20,10"
+                   Grid.Row="1" />
+
+            <Button Text="Ok"
+                    TextColor="White"
+                    Clicked="OnOkClicked"                    
+                    Grid.Row="2" />
+            
+        </Grid>
+    </controls:BasePopup.BasePopupContent>
+</controls:BasePopup>

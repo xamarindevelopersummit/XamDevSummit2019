@@ -4,6 +4,8 @@ using Prism.Ioc;
 using Prism.Unity;
 using Xamarin.Forms;
 using XamDevSummit.ViewModels;
+using XamDevSummit.Services.Interfaces;
+using XamDevSummit.Services;
 
 namespace XamDevSummit
 {
@@ -20,6 +22,8 @@ namespace XamDevSummit
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IPopupService, PopupService>();
+
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MasterDetailShellPage, MasterDetailShellViewModel>();
             containerRegistry.RegisterForNavigation<MenuPage>();

@@ -23,5 +23,7 @@
     <Folder Include="Models\Interfaces\" />
     <Folder Include="Events\" />
     <Folder Include="Controls\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 </Project>

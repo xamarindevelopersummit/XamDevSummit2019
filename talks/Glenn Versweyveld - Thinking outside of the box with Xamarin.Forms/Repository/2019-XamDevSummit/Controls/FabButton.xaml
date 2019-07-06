@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:XamDevSummit.Models"
-             xmlns:controls="clr-namespace:XamDevSummit.Controls"
+             xmlns:models="clr-namespace:XamDevSummit.Models"            
              x:Class="XamDevSummit.Controls.FabButton">
     <ContentView.Content>
         <Grid RowSpacing="0" ColumnSpacing="0"
