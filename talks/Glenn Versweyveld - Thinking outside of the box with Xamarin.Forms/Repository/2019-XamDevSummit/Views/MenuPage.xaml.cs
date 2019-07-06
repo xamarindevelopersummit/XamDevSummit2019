@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using XamDevSummit.Models.Interfaces;
 
 namespace XamDevSummit.Views
 {
@@ -10,6 +8,9 @@ namespace XamDevSummit.Views
         public MenuPage()
         {
             InitializeComponent();
+
+            //Fix top page marging requirement depending on the current device running the app
+            StatusRowDefinition.Height = DependencyService.Get<IDeviceInfo>().StatusbarHeight;
         }
     }
 }

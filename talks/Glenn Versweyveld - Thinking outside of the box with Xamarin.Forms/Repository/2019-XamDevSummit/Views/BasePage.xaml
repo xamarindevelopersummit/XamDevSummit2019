@@ -4,8 +4,10 @@
              x:Class="XamDevSummit.Views.BasePage">
     <ContentPage.Content>
         <Grid RowSpacing="0" ColumnSpacing="0"
+              BackgroundColor="Olive"
               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
+                <RowDefinition x:Name="StatusRowDefinition" Height="0" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
@@ -13,8 +15,7 @@
             <Grid x:Name="BaseHeaderGrid"
                   RowSpacing="0" ColumnSpacing="0"
                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-                  BackgroundColor="Olive"
-                  Grid.Row="0">
+                  Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="*" />
@@ -31,7 +32,7 @@
                   RowSpacing="0" ColumnSpacing="0"
                   BackgroundColor="White"
                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-                  Grid.Row="1" />
+                  Grid.Row="2" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

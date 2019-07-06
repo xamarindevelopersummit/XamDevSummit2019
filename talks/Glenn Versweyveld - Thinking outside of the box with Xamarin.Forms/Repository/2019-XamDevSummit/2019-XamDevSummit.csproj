@@ -20,5 +20,6 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
+    <Folder Include="Models\Interfaces\" />
   </ItemGroup>
 </Project>
