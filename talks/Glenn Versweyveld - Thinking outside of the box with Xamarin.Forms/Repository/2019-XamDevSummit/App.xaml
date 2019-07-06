@@ -5,6 +5,11 @@
                         x:Class="XamDevSummit.App">
     <prism:PrismApplication.Resources>
         <ResourceDictionary>
+            <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Material Design Icons" />
+                <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+            </OnPlatform>
+
             <Style TargetType="NavigationPage">
 <!--
                 To change the status area ( battery icon, etc ) to the given bar text color
@@ -13,6 +18,18 @@
                 <false/>
 -->
                 <Setter Property="BarTextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="MaterialButton" TargetType="Button">
+                <Setter Property="FontFamily" Value="{StaticResource MaterialFontFamily}" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
             </Style>
         </ResourceDictionary>        
     </prism:PrismApplication.Resources>
