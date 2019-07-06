@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:views="clr-namespace:XamDevSummit.Views"
-                mc:Ignorable="d"
-                x:Class="XamDevSummit.Views.MainPage">
+                x:Class="XamDevSummit.Views.MainPage"
+                BasePageTitle="Main page"
+                PageMode="Menu">
 
     <views:BasePage.BasePageContent>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Button Text="Navigate to non modal sub page" Command="{Binding NonModalCommand}" />
         </StackLayout>
     </views:BasePage.BasePageContent>
 </views:BasePage>
