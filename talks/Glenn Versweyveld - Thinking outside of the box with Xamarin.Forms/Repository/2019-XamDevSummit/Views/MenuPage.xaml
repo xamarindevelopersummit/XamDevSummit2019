@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamDevSummit.Views.MenuPage"
+             Title="Dummy title"> <!-- The menu page ALWAYS need a title tag filled in, otherwise Xamarin Forms will crash while trying to load the Master Detail page -->
+    <ContentPage.Content>
+        <Grid x:Name="MenuContentGrid" BackgroundColor="Silver">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label x:Name="MenuTitle" Text="Menu"
+                   Grid.Row="0" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
