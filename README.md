@@ -1,6 +1,6 @@
-#XamDevSummit2019
-
 ![](https://raw.githubusercontent.com/xamarindevelopersummit/XamDevSummit2019/master/logos/logo%20300x300.png)
+
+#XamDevSummit2019
 
 Xamarin Dev Summit aims to be the premiere Community-Run, Cross-platform, Mobile Developer Conference in North America.
 
