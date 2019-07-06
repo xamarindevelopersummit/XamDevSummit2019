@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:XamDevSummit.Views"
+                x:Class="XamDevSummit.Views.MainPage"
+                BasePageTitle="Main page"
+                PageMode="Menu">
+
+    <views:BasePage.BasePageContent>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Button Text="Navigate to non modal sub page" Command="{Binding NonModalCommand}" />
+            <Button Text="Navigate to modal sub page" Command="{Binding ModalCommand}" />
+            <Button Text="Show fab button" Command="{Binding FabCommand}" />
+            <Button Text="Show popup" Command="{Binding PopupCommand}" />
+        </StackLayout>
+    </views:BasePage.BasePageContent>
+</views:BasePage>
