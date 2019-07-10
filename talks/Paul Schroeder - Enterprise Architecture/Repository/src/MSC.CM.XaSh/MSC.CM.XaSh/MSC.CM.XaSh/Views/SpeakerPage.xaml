@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSC.CM.XaSh.Views.SpeakerPage"
+             Title="{Binding Title}"
+             Visual="Material"
+             BackgroundColor="{StaticResource LTGray}">
+
+    <ContentPage.Content>
+        <ListView x:Name="MainListView" Margin="15" ItemsSource="{Binding Speakers}" SeparatorVisibility="None"
+                  ItemSelected="OnItemSelected" HasUnevenRows="True" IsPullToRefreshEnabled="True"
+                  Refreshing="MainListView_Refreshing" BackgroundColor="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding FirstName}" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding LastName}" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                                </StackLayout>
+                                <Label Text="{Binding Biography}" FontAttributes="Italic" LineBreakMode="WordWrap" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

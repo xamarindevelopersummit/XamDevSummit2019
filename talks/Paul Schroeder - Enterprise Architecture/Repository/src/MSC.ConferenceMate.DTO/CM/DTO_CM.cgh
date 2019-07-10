@@ -1,0 +1,93 @@
+{
+  "FileGroupMessage": "",
+  "FileList": [
+    {
+      "FileLastChange": "2019-05-11T16:48:23.250545-05:00",
+      "Filename": "Announcement.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:24.8325439-05:00",
+      "Filename": "FeaturedEvent.cs"
+    },
+    {
+      "FileLastChange": "2019-06-24T15:17:16.958644-05:00",
+      "Filename": "Feedback.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:28.8435437-05:00",
+      "Filename": "FeedbackInitiatorType.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:30.6025444-05:00",
+      "Filename": "FeedbackType.cs"
+    },
+    {
+      "FileLastChange": "2019-06-24T15:17:17.9986417-05:00",
+      "Filename": "GenderType.cs"
+    },
+    {
+      "FileLastChange": "2019-06-24T15:17:18.3926448-05:00",
+      "Filename": "LanguageType.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:36.333544-05:00",
+      "Filename": "LookupList.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:38.2265444-05:00",
+      "Filename": "Room.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:40.038067-05:00",
+      "Filename": "Session.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:42.0440664-05:00",
+      "Filename": "SessionCategoryType.cs"
+    },
+    {
+      "FileLastChange": "2019-06-24T15:17:18.7926426-05:00",
+      "Filename": "SessionLike.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:46.2780681-05:00",
+      "Filename": "SessionSessionCategoryType.cs"
+    },
+    {
+      "FileLastChange": "2019-06-24T15:17:19.2476441-05:00",
+      "Filename": "SessionSpeaker.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:49.9370721-05:00",
+      "Filename": "Sponsor.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:52.0680701-05:00",
+      "Filename": "SponsorFeaturedEvent.cs"
+    },
+    {
+      "FileLastChange": "2019-05-11T16:48:54.4630674-05:00",
+      "Filename": "SponsorType.cs"
+    },
+    {
+      "FileLastChange": "2019-06-24T13:50:33.6181489-05:00",
+      "Filename": "Log.cs"
+    },
+    {
+      "FileLastChange": "2019-06-24T13:50:35.9961515-05:00",
+      "Filename": "LogType.cs"
+    },
+    {
+      "FileLastChange": "2019-07-01T23:32:40.3766852-05:00",
+      "Filename": "UserProfile.cs"
+    },
+    {
+      "FileLastChange": "2019-07-01T23:35:25.9369096-05:00",
+      "Filename": "BlobFile.cs"
+    },
+    {
+      "FileLastChange": "2019-07-01T23:35:26.3189051-05:00",
+      "Filename": "BlobFileType.cs"
+    }
+  ]
+}

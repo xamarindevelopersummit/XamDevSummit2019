@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSC.CM.XaSh.Views.MyProfileEditPage"
+             xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Title="{Binding Title}"
+             Visual="Material"
+             BackgroundColor="{StaticResource LTGray}">
+
+    <!-- For ios, use 100 on pages that will be tabbed at the top -->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" Default="0,0,0,0" />
+    </ContentPage.Padding>
+
+    <ScrollView>
+        <Grid BackgroundColor="{StaticResource LTGray}" Margin="15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" Margin="5">
+
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <circle:CircleImage x:Name="image" Source="{Binding MyProfileImage}" WidthRequest="200" HeightRequest="200"
+                                        Aspect="AspectFill" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+                    <!--<Button Text="Take a New Picture" Command="{Binding TakeNewPictureCommand}" IsEnabled="{Binding CanTakeNewPicture}"
+                            HorizontalOptions="Center" />
+                    <Button Text="Choose Existing Picture" Command="{Binding SelectExistingPictureCommand}" IsEnabled="{Binding CanPickExistingPicture}"
+                            HorizontalOptions="Center" />-->
+                    <Button Text="Take a New Picture" IsEnabled="{Binding CanTakeNewPicture}" Clicked="NewPictureButton_Clicked"
+                            HorizontalOptions="Center" />
+                    <Button Text="Choose Existing Picture" IsEnabled="{Binding CanPickExistingPicture}" Clicked="ExsitingPictureButton_Clicked"
+                            HorizontalOptions="Center" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="UserName: " />
+                        <Label Text="{Binding CurrentUser.UserName}" />
+                    </StackLayout>
+
+                    <Entry Text="{Binding FirstName}" Placeholder="First Name*" />
+                    <Entry Text="{Binding LastName}" Placeholder="Last Name*" />
+
+                    <Entry Text="{Binding JobTitle}"  Placeholder="Job Title" />
+                    <Entry Text="{Binding CompanyName}"  Placeholder="Company Name" />
+
+                    <Entry Text="{Binding Email}" Placeholder="Email*" />
+
+                    <Label IsVisible="{Binding DoesUserTweet}" x:Name="TwitterIcon" Style="{StaticResource FA.Brands.LabelStyle}"
+                               Text="{StaticResource FontAwesomeTwitter}" HeightRequest="60" TextColor="#00aced" FontSize="30">
+                    </Label>
+
+                    <Entry Text="{Binding TwitterUrl}" Placeholder="Your Twitter URL" />
+
+                    <Editor Text="{Binding Biography}" Placeholder="Biography" MaxLength="2000" AutoSize="TextChanges" Keyboard="Text" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="Center" />
+                        <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="Center" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

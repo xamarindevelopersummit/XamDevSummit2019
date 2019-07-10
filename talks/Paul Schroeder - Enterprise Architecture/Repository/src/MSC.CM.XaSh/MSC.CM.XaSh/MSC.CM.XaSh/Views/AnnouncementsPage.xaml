@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSC.CM.XaSh.Views.AnnouncementsPage"
+             Title="{Binding Title}"
+             Visual="Material"
+             BackgroundColor="{StaticResource LTGray}">
+
+    <!--xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOS:Page.UseSafeArea="true">-->
+    <!-- For ios, use 100 on pages that will be tabbed at the top -->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" Default="0,0,0,0" />
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <ListView x:Name="MainListView" Margin="15" ItemsSource="{Binding Announcements}" SeparatorVisibility="None"
+                  ItemSelected="OnItemSelected" HasUnevenRows="True" IsPullToRefreshEnabled="True"
+                  Refreshing="MainListView_Refreshing" BackgroundColor="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                                <Label Text="{Binding Description}" FontAttributes="Italic" LineBreakMode="WordWrap" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+
+    <!-- collectionview does not have pull to refresh yet, nor does it come with the graphic -->
+    <!--<CollectionView x:Name="MainListView" Margin="20" ItemsSource="{Binding Announcements}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="10">
+                        <Label Text="{Binding Title}" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                        <Label Text="{Binding Description}" FontAttributes="Italic" LineBreakMode="WordWrap" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>-->
+</ContentPage>

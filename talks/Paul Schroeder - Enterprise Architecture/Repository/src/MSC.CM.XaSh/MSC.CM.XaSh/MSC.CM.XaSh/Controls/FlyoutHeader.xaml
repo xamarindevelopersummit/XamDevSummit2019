@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSC.CM.XaSh.Controls.FlyoutHeader"
+             HeightRequest="65">
+    <ContentView.Content>
+        <Grid>
+            <Image Aspect="AspectFill" Source="monkeys.jpg" VerticalOptions="Center" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

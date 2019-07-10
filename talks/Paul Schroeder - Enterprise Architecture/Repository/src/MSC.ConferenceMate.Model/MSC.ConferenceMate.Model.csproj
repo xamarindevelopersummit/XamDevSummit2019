@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\QR\**" />
+    <Compile Remove="Models\QR\**" />
+    <EmbeddedResource Remove="Interfaces\QR\**" />
+    <EmbeddedResource Remove="Models\QR\**" />
+    <None Remove="Interfaces\QR\**" />
+    <None Remove="Models\QR\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CodeGenHero.DataService" Version="1.1.1" />
+    <PackageReference Include="CodeGenHero.Logging" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MSC.ConferenceMate.DTO\MSC.ConferenceMate.DTO.csproj" />
+    <ProjectReference Include="..\MSC.ConferenceMate.DataService\MSC.ConferenceMate.DataService.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,93 @@
+{
+  "FileGroupMessage": "",
+  "FileList": [
+    {
+      "FileLastChange": "2019-07-05T19:20:34.5994852-05:00",
+      "Filename": "AnnouncementsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:34.7684846-05:00",
+      "Filename": "FeaturedEventsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:34.8234836-05:00",
+      "Filename": "FeedbackInitiatorTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:35.2041308-05:00",
+      "Filename": "FeedbacksControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:35.7316605-05:00",
+      "Filename": "FeedbackTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:36.7802293-05:00",
+      "Filename": "GenderTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:37.7128932-05:00",
+      "Filename": "LanguageTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:39.553647-05:00",
+      "Filename": "LookupListsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:40.088223-05:00",
+      "Filename": "RoomsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:40.6422235-05:00",
+      "Filename": "SessionCategoryTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:41.2042243-05:00",
+      "Filename": "SessionLikesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:41.950221-05:00",
+      "Filename": "SessionsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:42.7272847-05:00",
+      "Filename": "SessionSessionCategoryTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:43.8769667-05:00",
+      "Filename": "SessionSpeakersControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:44.2280228-05:00",
+      "Filename": "SponsorFeaturedEventsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:44.309023-05:00",
+      "Filename": "SponsorsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:44.3755747-05:00",
+      "Filename": "SponsorTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:38.4819984-05:00",
+      "Filename": "LogsControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:38.9626494-05:00",
+      "Filename": "LogTypesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-02T23:02:59.6861465-05:00",
+      "Filename": "UserProfilesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:34.6544835-05:00",
+      "Filename": "BlobFilesControllerCustom.cs"
+    },
+    {
+      "FileLastChange": "2019-07-05T19:20:34.6964825-05:00",
+      "Filename": "BlobFileTypesControllerCustom.cs"
+    }
+  ]
+}

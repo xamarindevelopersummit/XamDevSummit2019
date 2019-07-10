@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSC.CM.XaSh.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MS.Red">#F25022</Color>
+            <Color x:Key="MS.Green">#7FBA00</Color>
+            <Color x:Key="MS.Blue">#00A4EF</Color>
+            <Color x:Key="MS.Yellow">#FFB900</Color>
+            <Color x:Key="MS.Gray">#737373</Color>
+            <Color x:Key="LTGray">#ECECEC</Color>
+
+            <x:String x:Key="FontAwesomeFacebook">&#xf082;</x:String>
+            <x:String x:Key="FontAwesomeTwitter">&#xf081;</x:String>
+            <x:String x:Key="FontAwesomeSlack">&#xf198;</x:String>
+
+            <Style x:Key="FA.Solid.LabelStyle"  TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                    Android="fa-solid-900.ttf#Font Awesome 5 Free Solid"
+                                    iOS="Font Awesome 5 Free"
+                                    WinPhone="Assets/fa-solid-900.ttf#Font Awesome 5 Free Solid" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="FA.Solid.ButtonStyle"  TargetType="Button">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                    Android="fa-solid-900.ttf#Font Awesome 5 Free Solid"
+                                    iOS="Font Awesome 5 Free"
+                                    WinPhone="Assets/fa-solid-900.ttf#Font Awesome 5 Free Solid" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="FA.Brands.LabelStyle"  TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                    Android="fa-brands-400.ttf#Font Awesome 5 Brands Regular"
+                                    iOS="Font Awesome 5 Brands"
+                                    WinPhone="Assets/fa-brands-400.ttf#Font Awesome 5 Brands" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

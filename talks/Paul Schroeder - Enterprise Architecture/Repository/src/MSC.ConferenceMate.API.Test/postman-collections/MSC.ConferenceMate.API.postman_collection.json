@@ -1,0 +1,944 @@
+{
+	"info": {
+		"_postman_id": "f4ef590d-07d2-42d3-be73-79c955b11cef",
+		"name": "MSC.ConferenceMate.API",
+		"description": "This collection is created for Testing the ConferenceMate API.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8fbc8b0e-d390-44c3-97f4-c332407e2b4e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c63007b8-6698-40ff-9c92-8f3b8a0d9adc",
+						"exec": [
+							"var moment = require('moment');",
+							"pm.globals.set(\"current_time\", moment().toISOString());",
+							"console.log('current_time set to: ');",
+							"console.log(pm.globals.get(\"current_time\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-version",
+						"value": "{{api-version}}",
+						"description": "Default ApiVersion"
+					}
+				],
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/APIStatus",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"APIStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get JWT Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe5ce032-11b1-423c-b752-d64bf5c6acfc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Received JWT\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"JWT Data:\", jsonData);",
+							"    pm.globals.set(\"jwt_access_token\", jsonData.access_token);",
+							"    pm.globals.set(\"refresh_token\", jsonData.refresh_token);",
+							"    pm.globals.set(\"userProfileId\", jsonData.userProfileId);",
+							"    console.log(\"global jwt_access_token set to: \" + pm.globals.get(\"jwt_access_token\"));",
+							"    console.log(\"global refresh_token set to: \" + pm.globals.get(\"refresh_token\"));",
+							"    console.log(\"global userProfileId set to: \" + pm.globals.get(\"userProfileId\"));",
+							"    ",
+							"    pm.expect(pm.globals.get(\"jwt_access_token\").length > 0).to.be.true;",
+							"    pm.expect(pm.globals.get(\"refresh_token\").length > 0).to.be.true;",
+							"    pm.expect(pm.globals.get(\"userProfileId\").length > 0).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "James@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseApiUrl}}/token",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get JWT Refresh Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb8c8f6b-db30-4222-9495-40e2a9f4c3f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Received JWT\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"JWT Data:\", jsonData);",
+							"    pm.globals.set(\"jwt_access_token\", jsonData.access_token);",
+							"    console.log(\"global jwt_access_token set to: \" + pm.globals.get(\"jwt_access_token\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{refresh_token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseApiUrl}}/token",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set User Profile Image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9485e8e0-5c81-4053-958f-e64e984a1a9b",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Default ApiVersion",
+						"key": "api-version",
+						"value": "{{api-version}}"
+					},
+					{
+						"description": "Accept Headers",
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "Content Type- Json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/PaulSchroeder/Pictures/Demo/James Montemagno.png"
+						},
+						{
+							"key": "userProfileId",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/UserProfileImage",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"UserProfileImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c4e668f5-5a6a-4ec2-b7c9-7bea4a2c115b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"console.log(jsonData);",
+							"",
+							"pm.test(\"At least 1 user profile exists\", function () {",
+							"    pm.expect(jsonData.length).to.be.at.least(1);",
+							"});",
+							"",
+							" pm.test(\"Our user profile exists in the system.\", function(){",
+							"    var expectedUserProfileId = parseInt(pm.globals.get(\"userProfileId\"), 10);",
+							"    console.log(\"expectedUserProfileId set to: \" + expectedUserProfileId);",
+							"    var condition = jsonData.filter(function(e){ return e.userProfileId === expectedUserProfileId}).length > 0;",
+							"    pm.expect(condition).to.be.true;",
+							" });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-version",
+						"value": "{{api-version}}",
+						"description": "Default ApiVersion"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson",
+						"description": "Accept Headers"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content Type- Json"
+					}
+				],
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/UserProfiles",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"UserProfiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "609a85ce-48f5-4aec-bdb7-40515f7a8941",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							" var jsonData = pm.response.json();",
+							" console.log(\"Get Current User:\", jsonData);",
+							"",
+							"pm.test(\"User has photoBlobFileId value.\", function(){",
+							"  pm.globals.set(\"photoBlobFileId\", jsonData.photoBlobFileId);",
+							"  console.log(\"global photoBlobFileId set to: \" + pm.globals.get(\"photoBlobFileId\"));",
+							"  pm.expect(pm.globals.get(\"photoBlobFileId\").length > 0).to.be.true;",
+							" });",
+							"",
+							" pm.test(\"New user exists in the system.\", function(){",
+							"    var expectedUserProfileId = parseInt(pm.globals.get(\"userProfileId\"), 10);",
+							"    console.log(\"global expectedUserProfileId set to: \" + expectedUserProfileId);",
+							"    var condition = jsonData.userProfileId === expectedUserProfileId;",
+							"    pm.expect(condition).to.be.true;",
+							" });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-version",
+						"value": "{{api-version}}",
+						"description": "Default ApiVersion"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson",
+						"description": "Accept Headers"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content Type- Json"
+					}
+				],
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/UserProfiles/{{userProfileId}}",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"UserProfiles",
+						"{{userProfileId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current User BlobFile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "609a85ce-48f5-4aec-bdb7-40515f7a8941",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							" var jsonData = pm.response.json();",
+							" console.log(\"Get Current User Blobfile:\", jsonData);",
+							"",
+							"pm.test(\"User has BlobFile name.\", function(){",
+							"  pm.globals.set(\"photoBlobFileName\", jsonData.name);",
+							"  console.log(\"global photoBlobFileName set to: \" + pm.globals.get(\"photoBlobFileName\"));",
+							"  pm.expect(pm.globals.get(\"photoBlobFileName\").length > 0).to.be.true;",
+							" });",
+							"",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"description": "Default ApiVersion",
+						"key": "api-version",
+						"value": "{{api-version}}"
+					},
+					{
+						"description": "Accept Headers",
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson"
+					},
+					{
+						"description": "Content Type- Json",
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/BlobFiles/{{photoBlobFileId}}",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"BlobFiles",
+						"{{photoBlobFileId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create First Feedback",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fa01608-b7e5-4de6-b09d-21b4a258939d",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"First Feedback Record Has Data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"Feedback Record Has Data:\", jsonData);",
+							"    pm.globals.set(\"firstFeedbackId\", jsonData.feedbackId);",
+							"    console.log(\"global firstFeedbackId set to: \" + pm.globals.get(\"firstFeedbackId\"));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Default ApiVersion",
+						"key": "api-version",
+						"value": "{{api-version}}"
+					},
+					{
+						"description": "Accept Headers",
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson"
+					},
+					{
+						"description": "Content Type- Json",
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n   \"feedbackId\" :\"{{$guid}}\",\r\n   \"UserProfileId\": \"{{userProfileId}}\",\r\n   \"title\": \"Loved this session\",\r\n   \"description\": \"I learned some cool stuff!\",\r\n   \"feedbackTypeId\": 2,\r\n   \"feedbackInitiatorTypeId\": 1,\r\n   \"source\": \"Mobile App\",\r\n   \"ratingValue\": null,\r\n   \"latitude\": 123.456,\r\n   \"longitude\": 345.678,\r\n   \"dispositioned\": 0,\r\n   \"sessionId\": 13,\r\n   \"featuredEventId\": null,\r\n   \"isPublic\": 1,\r\n   \"isChat\": 0,\r\n   \"isDeleted\": false,\r\n   \"createdBy\": \"{{userName}}\",\r\n   \"createdUtcDate\": \"{{current_time}}\",\r\n   \"modifiedBy\": \"{{userName}}\",\r\n   \"modifiedUtcDate\": \"{{current_time}}\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/Feedbacks",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"Feedbacks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Feedback",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf347371-5b80-44ff-b92e-c5bab90a0eca",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"At least 1 feedback record exists\", function () {",
+							"    pm.expect(jsonData.length).to.be.at.least(1);",
+							"});",
+							"",
+							"pm.test(\"New feedback record exists in the system.\", function(){",
+							"    var expectedId = pm.globals.get(\"firstFeedbackId\");",
+							"    console.log(\"expectedId = \" + expectedId);",
+							"    var condition = jsonData.filter(function(e){ return e.feedbackId === expectedId}).length > 0;",
+							"    pm.expect(condition).to.be.true;",
+							" });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"description": "Default ApiVersion",
+						"key": "api-version",
+						"value": "{{api-version}}"
+					},
+					{
+						"description": "Accept Headers",
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson"
+					},
+					{
+						"description": "Content Type- Json",
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/Feedbacks",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"Feedbacks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete First Feedback",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f519935-247f-49bf-969d-14aa39fdbf55",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "api-version",
+						"value": "{{api-version}}",
+						"description": "Default ApiVersion"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson",
+						"description": "Accept Headers"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content Type- Json"
+					}
+				],
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/Feedbacks/{{firstFeedbackId}}",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"Feedbacks",
+						"{{firstFeedbackId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create First Announcement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fa01608-b7e5-4de6-b09d-21b4a258939d",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"First Announcement Record Has Data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"Announcement Record Has Data:\", jsonData);",
+							"    pm.globals.set(\"firstAnnouncementId\", jsonData.announcementId);",
+							"    console.log(\"global firstAnnouncementId set to: \" + pm.globals.get(\"firstAnnouncementId\"));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Default ApiVersion",
+						"key": "api-version",
+						"value": "{{api-version}}"
+					},
+					{
+						"description": "Accept Headers",
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson"
+					},
+					{
+						"description": "Content Type- Json",
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n   \"title\": \"This is amazing!\",\r\n   \"shortTitle\": \"It works\",\r\n   \"description\": \"A wonderful description\",\r\n   \"startTime\": 2,\r\n   \"endTime\": 1,\r\n   \"isDeleted\": false,\r\n   \"createdBy\": \"{{userName}}\",\r\n   \"createdUtcDate\": \"{{current_time}}\",\r\n   \"modifiedBy\": \"{{userName}}\",\r\n   \"modifiedUtcDate\": \"{{current_time}}\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/Announcements",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"Announcements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete First Announcement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f519935-247f-49bf-969d-14aa39fdbf55",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "api-version",
+						"value": "{{api-version}}",
+						"description": "Default ApiVersion"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson",
+						"description": "Accept Headers"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content Type- Json"
+					}
+				],
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/Announcements/{{firstAnnouncementId}}",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"Announcements",
+						"{{firstAnnouncementId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get UserProfile Thumbnail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9485e8e0-5c81-4053-958f-e64e984a1a9b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.headers)",
+							"",
+							"",
+							"pm.test(\"Content-Disposition has expected filename\", function () {",
+							"    var expectedFileName = pm.globals.get(\"photoBlobFileName\");",
+							"    var expectedContentDisposition = 'attachment; filename=\"' + expectedFileName + '\"';",
+							"    console.log(\"expectedContentDisposition: \" + expectedContentDisposition);",
+							"        ",
+							"    var actualContentDiposition = pm.response.headers.filter(function(e){ return e.key === \"Content-Disposition\"})[0];",
+							"    console.log(\"actualContentDiposition: \" + actualContentDiposition);",
+							"",
+							"    var condition = expectedContentDisposition == actualContentDiposition;",
+							"    pm.expect(condition).to.be.true;",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-version",
+						"value": "{{api-version}}",
+						"description": "Default ApiVersion"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/json, application/json-patch+json, application/bson",
+						"description": "Accept Headers"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "Content Type- Json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userProfileId",
+							"value": "{{userProfileId}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseApiUrl}}/CM/UserProfileThumbnail/{{userProfileId}}",
+					"host": [
+						"{{baseApiUrl}}"
+					],
+					"path": [
+						"CM",
+						"UserProfileThumbnail",
+						"{{userProfileId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d34f94bf-edfe-4126-89d9-fc69bce5154a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "277fa6c4-0fb2-4a06-aaab-e9d029dff0c0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
