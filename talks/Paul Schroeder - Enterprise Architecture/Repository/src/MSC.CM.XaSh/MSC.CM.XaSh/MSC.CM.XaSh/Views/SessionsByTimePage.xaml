@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSC.CM.XaSh.Views.SessionsByTimePage"
+             xmlns:conv="clr-namespace:MSC.CM.XaSh.Converters"
+             Title="{Binding Title}"
+             Visual="Material"
+             BackgroundColor="{StaticResource LTGray}"
+             x:Name="SessByTimePage">
+
+    <!-- For ios, use 100 on pages that will be tabbed at the top -->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" Default="0,0,0,0" />
+    </ContentPage.Padding>
+
+    <ContentPage.Resources>
+        <conv:BoolToHeartColorConverter x:Key="BoolToHeartColorConverter" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ListView x:Name="MainListView" Margin="15" ItemsSource="{Binding SessionsByTime}" SeparatorVisibility="None"
+                  ItemSelected="OnItemSelected" HasUnevenRows="True" IsPullToRefreshEnabled="True"
+                  Refreshing="MainListView_Refreshing" BackgroundColor="Transparent" IsGroupingEnabled="True">
+
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Key}" FontAttributes="Bold" FontSize="Medium" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding Description}" FontAttributes="Italic" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding SpeakerList}" LineBreakMode="WordWrap" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding DateDisplay}" />
+                                        <Label Text="{Binding StartEndTimeDisplay}" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <Label Grid.Column="1" Text="&#xf004;" Style="{StaticResource FA.Solid.LabelStyle}"
+                                       HeightRequest="70" WidthRequest="70" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center"
+                                       TextColor="{Binding HasLikes, Converter={StaticResource BoolToHeartColorConverter}}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference SessByTimePage}, Path=BindingContext.LikeCommand}" CommandParameter="{Binding SessionId}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

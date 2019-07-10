@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceAssemblyReference>true</ProduceAssemblyReference>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview5.19227.9" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.0-preview5.19227.9" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.0.0-preview5.19227.9" />
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.346134-pre9" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />  
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="3.6.0.344457" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MSC.CM.Xam\MSC.CM.Xam.csproj" />
+    <ProjectReference Include="..\..\..\MSC.ConferenceMate.DataService\MSC.ConferenceMate.DataService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AnnouncementsPage.xaml.cs">
+      <DependentUpon>AnnouncementsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GeneralInfoPage.xaml.cs">
+      <DependentUpon>GeneralInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LocalWeatherPage.xaml.cs">
+      <DependentUpon>LocalWeatherPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MyFavoritesPage.xaml.cs">
+      <DependentUpon>MyFavoritesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MyProfileEditPage.xaml.cs">
+      <DependentUpon>MyProfileEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MyProfilePage.xaml.cs">
+      <DependentUpon>MyProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SessionsByRoomPage.xaml.cs">
+      <DependentUpon>SessionsByRoomPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SessionsByTimePage.xaml.cs">
+      <DependentUpon>SessionsByTimePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WorkshopsPage.xaml.cs">
+      <DependentUpon>WorkshopsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SpeakerPage.xaml.cs">
+      <DependentUpon>SpeakerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FeedbackPage.xaml.cs">
+      <DependentUpon>FeedbackPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\FlyoutHeader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

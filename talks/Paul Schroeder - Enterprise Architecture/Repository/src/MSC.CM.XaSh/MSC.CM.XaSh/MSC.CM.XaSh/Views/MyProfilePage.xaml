@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSC.CM.XaSh.Views.MyProfilePage"
+             xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Title="{Binding Title}"
+             Visual="Material"
+             BackgroundColor="{StaticResource LTGray}">
+
+    <!-- For ios, use 100 on pages that will be tabbed at the top -->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" Default="0,0,0,0" />
+    </ContentPage.Padding>
+
+    <ScrollView>
+        <Grid BackgroundColor="{StaticResource LTGray}" Margin="15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <circle:CircleImage Grid.Column="0" Grid.Row="0" Source="{Binding MyProfileImage}" WidthRequest="80" HeightRequest="80"
+                                        Aspect="AspectFill" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+                    <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding CurrentUser.FirstName}" FontSize="Medium" FontAttributes="Bold" />
+                            <Label Text="{Binding CurrentUser.LastName}" FontSize="Medium" FontAttributes="Bold" />
+                        </StackLayout>
+                        <Label Text="{Binding CurrentUser.JobTitle}" LineBreakMode="WordWrap" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                        <Label Text="{Binding CurrentUser.CompanyName}" LineBreakMode="WordWrap" />
+                        <Label Text="{Binding CurrentUser.UserName}" />
+                        <Label Text="{Binding CurrentUser.Email}" />
+                        <!--<Label IsVisible="{Binding DoesUserTweet}" x:Name="TwitterIcon" Style="{StaticResource FA.Brands.LabelStyle}"
+                               Text="{StaticResource FontAwesomeTwitter}" HeightRequest="100" TextColor="#00aced" FontSize="42">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TwitterCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>-->
+                        <Label Text="{Binding CurrentUser.Biography}" LineBreakMode="WordWrap" />
+                        <Label x:Name="EditProfileIcon" Style="{StaticResource FA.Solid.LabelStyle}"
+                               Text="&#xf044;" HeightRequest="100" TextColor="#00aced" FontSize="42">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditProfileCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

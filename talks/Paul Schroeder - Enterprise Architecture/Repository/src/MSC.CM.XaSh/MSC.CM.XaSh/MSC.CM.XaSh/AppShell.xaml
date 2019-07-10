@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:MSC.CM.XaSh.Views"
+       xmlns:controls="clr-namespace:MSC.CM.XaSh.Controls"
+       RouteHost="msctek.com"
+       RouteScheme="app"
+       Route="MSC.CM.XaSh"
+       FlyoutHeaderBehavior="CollapseOnScroll"
+       Navigating="OnNavigating"
+       Navigated="OnNavigated"
+       x:Class="MSC.CM.XaSh.AppShell"
+       x:Name="self"
+       FlyoutIcon="hamburger.png">
+
+    <!--
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXX|                            |XXXXXXXX
+        XXXXXXX'                              'XXXXXXX
+        XXXXXx.                                .xNXXXX
+        XXXNo.        ,ll;.        .;ll,        .oNXXX
+        XXX|.         ,OXNo.      .oNXO,          cXXX
+        XX|            'XXNx.    .xNXX'            |XX
+        X|              .xXXX.  .XXXx.              |X
+        |                .xXXOllOXXx.                |
+        |                .xXXXccXXXx.                |
+        X|              .XXXx.  .xXXX.              |X
+        XXc            ,OXNd.    .dNXO,            cXX
+        XXXl.         ;XXXo.      .oNXX;         .lXXX
+        XXXNd.        'cc,          ,cc'        .dNXXX
+        XXXXXx.                                .xXXXXX
+        XXXXXXO'                              'OXXXXXX
+        XXXXXXXX|                            |XXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+        Shell is an all new way to quickly get started with your application. There are 3 levels to a Shell app:
+        * ShellItem: populates the Flyout menu along with special menu items
+        * ShellSection: groups of 1 or more ContentPage displayed as bottom tabs
+        * ShellContent: a ContentPage host. Multiple ShellContent within a ShellSection are navigable by top tabs
+
+        For more details about building apps with Shell, visit these resources:
+        * MSDN Article: https://aka.ms/xf-msdn
+        * Preview Documentation: https://aka.ms/xf-shell-docs
+        * Blog Introduction: https://aka.ms/xf-40-blog
+
+        PLEASE give us feedback on your experience: good, bad, and ugly.
+        https://www.surveymonkey.com/r/VTJNWTM
+
+        Thanks for trying out this preview!
+
+        - David Ortinau, Senior Program Manager for Mobile Dev Tools [david.ortinau@microsoft.com]
+    -->
+
+    <!--
+        Styles and Resources
+    -->
+    <Shell.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="MS.Red">#F25022</Color>
+            <Color x:Key="MS.Green">#7FBA00</Color>
+            <Color x:Key="MS.Blue">#00A4EF</Color>
+            <Color x:Key="MS.Yellow">#FFB900</Color>
+            <Color x:Key="MS.Gray">#737373</Color>
+            <Color x:Key="LTGray">#ECECEC</Color>
+
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellForegroundColor" Value="White" />
+                <Setter Property="Shell.ShellTitleColor" Value="White" />
+                <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellTabBarForegroundColor" Value="White" />
+                <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.ShellTabBarTitleColor" Value="White" />
+            </Style>
+
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+
+            <Style x:Key="RedShell" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource MS.Red}" />
+            </Style>
+            <Style x:Key="BlueShell" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource MS.Blue}" />
+            </Style>
+            <Style x:Key="GreenShell" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource MS.Green}" />
+            </Style>
+            <Style x:Key="YellowShell" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource MS.Yellow}" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Title="Welcome" Icon="tab_about.png">
+            <ShellContent Route="generalInfo" Title="General Info" Style="{StaticResource RedShell}" Icon="tab_about.png">
+                <views:GeneralInfoPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="Speakers" Icon="tab_about.png">
+            <ShellContent Route="speakers" Title="Speakers" Style="{StaticResource YellowShell}" Icon="tab_about.png">
+                <views:SpeakerPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="Sessions By Room" Icon="tab_about.png">
+            <ShellContent Route="sessionsByRoom" Title="Sessions By Room" Style="{StaticResource BlueShell}" Icon="tab_about.png">
+                <views:SessionsByRoomPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="Sessions By Time" Icon="tab_about.png">
+            <ShellContent Route="sessionsByTime" Title="Sessions By Time" Style="{StaticResource GreenShell}" Icon="tab_about.png">
+                <views:SessionsByTimePage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <Shell.MenuItems>
+        <MenuItem Text="Announcements"
+                  Icon="tab_feed.png"
+                  BindingContext="{x:Reference self}"
+                  Command="{Binding AnnouncementsPageCommand}" />
+        <MenuItem Text="My Favorites"
+                  Icon="tab_feed.png"
+                  BindingContext="{x:Reference self}"
+                  Command="{Binding MyFavoritesPageCommand}" />
+        <MenuItem Text="My Profile"
+                  Icon="tab_feed.png"
+                  BindingContext="{x:Reference self}"
+                  Command="{Binding MyProfilePageCommand}" />
+        <MenuItem Text="Workshops"
+                  Icon="tab_feed.png"
+                  BindingContext="{x:Reference self}"
+                  Command="{Binding WorkshopsPageCommand}" />
+        <MenuItem Text="Feedback"
+                  Icon="tab_feed.png"
+                  BindingContext="{x:Reference self}"
+                  Command="{Binding FeedbackPageCommand}" />
+        <MenuItem Text="About"
+                  Icon="tab_feed.png"
+                  BindingContext="{x:Reference self}"
+                  Command="{Binding AboutPageCommand}" />
+    </Shell.MenuItems>
+</Shell>

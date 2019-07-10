@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A35CDF7F-CF6A-4242-8919-01BEEB81E72D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MSC.ConferenceMate.Repository</RootNamespace>
+    <AssemblyName>MSC.ConferenceMate.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\CM\Announcement.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AnnouncementConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetRole.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetRoleConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUser.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUserClaim.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUserClaimConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUserConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUserLogin.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUserLoginConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUserRole.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\AspNetUserRoleConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\BlobFile.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\BlobFileConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\BlobFileType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\BlobFileTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\CMDataContext.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\CMDataContextFactory.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\ConferenceMateContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FakeCMDataContext.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FakeDbSet.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FeaturedEvent.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FeaturedEventConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\Feedback.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FeedbackConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FeedbackInitiatorType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FeedbackInitiatorTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FeedbackType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\FeedbackTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\GenderType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\GenderTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\ICMDataContext.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\LanguageType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\LanguageTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\Log.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\LogConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\LogType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\LogTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\LookupList.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\LookupListConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\RefreshToken.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\RefreshTokenConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\Room.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\RoomConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\Session.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionCategoryType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionCategoryTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionLike.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionLikeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionSessionCategoryType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionSessionCategoryTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionSpeaker.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SessionSpeakerConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\Sponsor.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SponsorConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SponsorFeaturedEvent.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SponsorFeaturedEventConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SponsorType.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\SponsorTypeConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\UserProfile.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CM\UserProfileConfiguration.cs">
+      <DependentUpon>ConferenceMateContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICMRepository.cs">
+      <DependentUpon>RepositoryInterface_CM.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICMRepositoryCrud.cs">
+      <DependentUpon>RepositoryInterfaceCrud_CM.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Mappers\AutoMapperInitializer.cs" />
+    <Compile Include="Mappers\CMAutoMapperProfile.cs">
+      <DependentUpon>AutoMapperProfile_CM.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CMRepository.cs">
+      <DependentUpon>Repository_CM.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\CMRepositoryBase.cs">
+      <DependentUpon>RepositoryBase_CM.cgh</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Custom\CMRepositoryBaseCustom.cs">
+      <DependentUpon>RepositoryBasePartialMethods_CM.cgh</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper">
+      <Version>8.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="CodeGenHero.Repository">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="CodeGenHero.Repository.AutoMapper">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.2.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entities\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Entities\EF.Reverse.POCO.ttinclude" />
+    <None Include="Interfaces\RepositoryInterfaceCrud_CM.cgh" />
+    <None Include="Interfaces\RepositoryInterface_CM.cgh" />
+    <None Include="Mappers\AutoMapperProfile_CM.cgh" />
+    <None Include="Repositories\Custom\RepositoryBasePartialMethods_CM.cgh" />
+    <None Include="Repositories\RepositoryBase_CM.cgh" />
+    <None Include="Repositories\Repository_CM.cgh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSC.ConferenceMate.DTO\MSC.ConferenceMate.DTO.csproj">
+      <Project>{6774a31a-070b-4c61-adb5-b21dce9e69f9}</Project>
+      <Name>MSC.ConferenceMate.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\CM\ConferenceMateContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConferenceMateContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
