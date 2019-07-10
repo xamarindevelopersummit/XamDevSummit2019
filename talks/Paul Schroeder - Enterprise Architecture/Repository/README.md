@@ -28,10 +28,31 @@ Most of the projects in this solution are meant to work on many .NET platforms, 
 ## Get Started
 
 1. To examine client-side Xamarin code, open the `MSC.CM.XaSh.sln` found in the \src folder.
-2. To explore the server-side Web API and data access code, open the `MSC.ConferenceMate.Web.sln` found in the \src folder.
-3. Use the `100 ConferenceMate Schema.sql` and `200 ConverenceMate Data.sql` files to create your own database.  
+
+2. Xamarin client - Configure the API endpoint in the App.xaml.cs file to match your server-side deployment of the Web API. i.e. public static string AzureBackendUrl = 
+
+- Using Conveyor extension: "http://10.0.0.145:45455/api/");
+- Using Android Emulator: "http://10.0.2.2:6677/api/";
+- Deployed to Azure: "https://conferencemate.azurewebsites.net/api/");
+
+3. To explore the server-side Web API and data access code, open the `MSC.ConferenceMate.Web.sln` found in the \src folder.
+
+4. Web API - configure a "developer_config.json" file at the root of MSC.ConferenceMate.API.  This is for the configuration builder and should be structured like this:
+
+- {
+	"appSettings": {
+		"AzureStorageConfig_AccountKey": "Your Account Key Here",
+		"Token_AudienceSecret": "Your Audience Secret Here"
+	},
+	"connectionStrings": {
+		"ConferenceMateDB": "Data Source=.;Initial Catalog=ConferenceMate;Integrated Security=True;..."
+	}
+}
+
+5. Use the `100 ConferenceMate Schema.sql` and `200 ConverenceMate Data.sql` files to create your own database.  
 Alternatively, use the database project that is included as part of the Web solution.
-4. To test whether your API is working or not, import these files into Postman:
+
+6. To test whether your API is working or not, import these files into Postman:
 - src\MSC.ConferenceMate.API.Test\postman-collections\MSC.ConferenceMate.API.postman_collection.json
 - src\MSC.ConferenceMate.API.Test\postman-collections\ConferenceMate (Local).postman_environment.json
  
