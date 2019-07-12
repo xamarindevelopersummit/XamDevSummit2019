@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="XamarinCustomVision.XamarinCustomVision" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="25" />
+  <uses-feature android:name="android.hardware.camera.any" android:required="true" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+  <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:name="android.app.Application" android:debuggable="true">
+    <activity android:label="@string/app_name" android:theme="@style/AppTheme.NoActionBar" android:name="md5fd9af3887c80df0ad1e86f8d28422298.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="XamarinCustomVision.XamarinCustomVision.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.XamarinCustomVision.XamarinCustomVision" />
+      </intent-filter>
+    </receiver>
+    <meta-data android:name="android.support.VERSION" android:value="25.4.0" />
+  </application>
+</manifest>
