@@ -1,0 +1,14 @@
+1x1
+2x1
+2x2
+3x2
+4x1
+4x2
+blue lego
+green apple
+green banana
+green lego
+red apple
+red lego
+yellow banana
+yellow lego
