@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="NetworkState.MainPage"
+		Title = "Main Page">
+
+    <ContentPage.ToolbarItems>
+		<ToolbarItem Text="GC" Clicked="OnDoGC" />
+	</ContentPage.ToolbarItems>
+	
+	<StackLayout Padding="20" Spacing="30">
+		<Button Text="Show Network Status"
+				BackgroundColor="Green"
+				TextColor="White"
+				Clicked="OnNextPage" />
+	</StackLayout>
+	
+</ContentPage>
