@@ -28,7 +28,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.0-preview5.19227.9" />
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.0.0-preview5.19227.9" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
